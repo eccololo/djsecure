@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}SecureUp | Dashboard{% endblock %}
+{% block content %}
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-white justify-content-center"
+>
+  <a class="navbar-brand main-heading" href="{% url 'home' %}"> &nbsp; SecureUp </a>
+
+</nav>
+<br /><br />
+<div class="container bg-white shadow-md px-5 pb-3 pt-4 form-layout">
+    <h5>Welcome {{ user }}</h5>
+    <br />
+    <p>This is your dashboard.</p>
+    <br />
+    <a href="{% url 'user-logout' %}" class="btn btn-info navbar-btn" type="button">Logout</a>
+</div>
+<br />
+<div class="container bg-white shadow-md px-5 pb-3 pt-4 form-layout">
+    <h5>About SecureUp</h5>
+    <br />
+    <p>SecureUp is Web App written in Django that implements security measures like 2FA, reCaptcha, 
+      auto-logout, env vars, anti brute force attack, password reset and others.</p>
+</div>
+<br />
+<div class="container bg-white shadow-md px-5 pb-3 pt-4 form-layout">
+    <h5>Two-Factor Authentication</h5>
+    <br />
+    <p>2FA security measure adds extra layer of security to web app.</p>
+    <br />
+    <a href="{% url 'two_factor:setup' %}" class="btn btn-info navbar-btn" type="button">Enable 2FA</a>
+    <br /><br />
+    <a href="{% url 'two_factor:profile' %}" class="btn btn-primary navbar-btn" type="button">2FA Settings</a>  
+    <br /><br />
+  </div>
+<br /><br />
+<!-- Auto-Logout -->
+{{ redirect_to_login_immediately }} 
+{% endblock %}
+

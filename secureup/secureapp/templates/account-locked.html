@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}SecureUp | Account Locked{% endblock %}
+{% block content %}
+<br /><br />
+<div class="container bg-white shadow-md px-5 pb-3 pt-4 form-layout">
+    <div class="text-center">
+        <i class="fa-solid fa-lock fa-4x text-dark"></i>
+        <br /><br />
+        <h4>Account locked</h4>
+        <br />
+        <p>You have been locked out of your accounts due to multiple login attempts.</p>
+        <p>You may re-attempt to login to your account after expiry period.</p>
+        <br />
+        <a href="{% url 'home' %}" class="btn btn-info" type="button"><i class="fa-solid fa-house"></i> Home Page</a>
+        <br /><br />
+    </div>
+</div>
+
+{% endblock %}

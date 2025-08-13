@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}SecureUp | Register{% endblock %}
+{% block content %}
+<br />
+<div class="container bg-white shadow-md px-5 pb-3 pt-4 form-layout">
+    <h3>Create your account.</h3>
+    <h5>Secure your account today!</h5>
+    <br /><br />
+    <form method="POST" autocomplete="off">
+        {% csrf_token %}
+        {{ form.username|as_crispy_field }}
+        <br /><br />
+        {{ form.email|as_crispy_field }}
+        <br /><br />
+        {{ form.password1|as_crispy_field }}
+        <br /><br />
+        {{ form.password2|as_crispy_field }}
+        <br /><br />
+        {{ form.captcha }}
+        <br /><br />
+        <button type="submit" class="btn btn-info btn-log w-100 p-3 btn-block">Create your account</button>
+    </form>
+    <br /><br />
+    <div class="text-center">
+        <p>Already have an account?</p>
+        <a href="{% url 'home' %}" class="link-style">Login</a>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,66 @@
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <title> SecureX | Login </title>
+
+        <meta charset="utf-8" />
+
+        <meta name="viewport" content="width-device-width, initial-scale=1, maximum-scale=1"/>
+
+        <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/lux/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+        <!-- End Favicon -->
+
+        
+    </head>
+
+    <style type="text/css">
+
+        body{
+            background-color: #f0f0f0;
+        }
+
+    </style>
+
+    <!-- Messages -->
+    {% for message in messages %}
+        <div class="message alert alert-info float-center text-center {{ message.tags }}">
+          <i class="fa-solid fa-clock"></i> &nbsp; {{ message }}
+        </div>
+    {% endfor %}
+
+  <br>
+
+  <body>
+ 
+    {% block content_wrapper %}
+      
+      <div class="container">
+      
+          {% block content %} {% endblock %}
+
+        </div>
+
+      {% endblock %}
+
+    
+
+  </body>
+
+
+  <script src="{% static 'js/app.js' %}"></script>
+
+</html>
